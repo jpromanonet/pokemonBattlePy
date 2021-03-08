@@ -3,3 +3,4 @@ A pokemon Battle game made in Python just for fun, using Pygame as a main librar
 
 ## Libraries I use:
 1. Pygame
+2. PokeApi
