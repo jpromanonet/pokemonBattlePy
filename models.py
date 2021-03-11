@@ -5,3 +5,6 @@ class Pokemon:
         self.level = level
         self.type1 = type1
         self.type2 = type2
+        self.attacks = []
+        self.stats = {}
+        self.current_status = 0
