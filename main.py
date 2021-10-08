@@ -35,24 +35,28 @@ battle = Battle(pokemon1, pokemon2)
 def ask_command(pokemon):
     command = None
     while not command:
-        # DO ATTACK -> attack 0
         tmp_command = input("What should "+pokemon.name+" do?").split(" ")
         if len(tmp_command) == 2:
             try:
-                if tmp_command[0] == DO_ATTACK and 0 <= int(tmp_command[1])
+                if tmp_command[0] == DO_ATTACK and 0 <= int(tmp_command[1]) < 4:
                     command = Command({DO_ATTACK: int(tmp_command[1])})
-                except Exception:
+            except Exception:
                     pass
     return command 
 
+battle = Battle(pokemon1, pokemon2)
 
 while not battle.is_finished():
     # First ask for command
     command1 = ask_command(pokemon1)
     command2 = ask_command(pokemon2)
 
+    # Genera un nuevo turno =)
     turn = Turn()
     turn.command1 = command1
     turn.command2 = command2
 
-    
+    if turn.can_start():
+        # Ejecutar turno
+        battle.execute_turn(turn)
+        battle.print_current_status()    
