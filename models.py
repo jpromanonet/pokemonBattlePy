@@ -29,3 +29,16 @@ class Attack:
         self.pp = pp
         self.power = power
         self.accuracy = accuracy
+
+class Turn:
+
+    def __init__(self):
+        self.command1 = None
+        self.command2 = None
+
+    def can_start(self):
+        return self.command1
+
+class Command:
+    def __init__(self, action):
+        self.action = action
