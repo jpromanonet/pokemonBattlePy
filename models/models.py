@@ -1,5 +1,6 @@
 from constants import *
 
+
 class Battle:
 
     def __init__(self, pokemon1, pokemon2):
@@ -12,17 +13,17 @@ class Battle:
         if finished:
             self.print_winner()
         return finished
-    
+
     def print_winner(self):
         if self.pokemon1.current_hp <= 0 < self.pokemon2.current_hp:
-            print(self.pokemon2.name + " won in " + str(self.actual_turn)+" turns!!")
+                print(self.pokemon2.name + " won in " + str(self.actual_turn)+" turns!!")
         elif self.pokemon2.current_hp <= 0 < self.pokemon1.current_hp:
-            print(self.pokemon1.name + " won in " + str(self.actual_turn)+" turns!!")
+                print(self.pokemon1.name + " won in " + str(self.actual_turn)+" turns!!")
         else:
-            print("DOUBLE KO")
+            print("DOUBLE KO!")
 
     def execute_turn(self, turn):
-        # Logica para ejecutar un turno dentro de una batalla
+        # Logic to execute a turn inside a battle
         command1 = turn.command1
         command2 = turn.command2
         attack1 = None
@@ -32,7 +33,7 @@ class Battle:
         if DO_ATTACK in command2.action.keys():
             attack2 = self.pokemon2.attacks[command2.action[DO_ATTACK]]
 
-        # Ejecutar ataques
+        # Execute attacks
         self.pokemon2.current_hp -= attack1.power
         self.pokemon1.current_hp -= attack2.power
         self.actual_turn += 1
@@ -40,6 +41,7 @@ class Battle:
     def print_current_status(self):
         print(self.pokemon1.name + " has " + str(self.pokemon1.current_hp) + " left!")
         print(self.pokemon2.name + " has " + str(self.pokemon2.current_hp) + " left!")
+
 
 class Pokemon:
 
@@ -53,6 +55,7 @@ class Pokemon:
         self.current_status = 0
         self.current_hp = 0
 
+
 class Attack:
 
     def __init__(self, name, t, category, pp, power, accuracy):
@@ -63,14 +66,16 @@ class Attack:
         self.power = power
         self.accuracy = accuracy
 
+
 class Turn:
 
     def __init__(self):
         self.command1 = None
         self.command2 = None
-    
+
     def can_start(self):
         return self.command1 is not None and self.command2 is not None
+
 
 class Command:
 
