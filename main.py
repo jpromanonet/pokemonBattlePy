@@ -73,7 +73,7 @@ pokemon2.attacks = [Attack("scratch", "normal", PHYSICAL, 10, 10, 100)]
 def ask_command(pokemon):
     command = None
     while not command:
-        tmp_command = input("What should "+pokemon.name+" do?").split(" ")
+        tmp_command = input("What should "+pokemon.name+" do? ").split(" ")
         if len(tmp_command) == 2:
             try:
                 if tmp_command[0] == DO_ATTACK and 0 <= int(tmp_command[1]) < 4:
