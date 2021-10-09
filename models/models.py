@@ -1,6 +1,5 @@
 from constants import *
 
-
 class Battle:
 
     def __init__(self, pokemon1, pokemon2):
