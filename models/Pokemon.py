@@ -29,6 +29,11 @@ class Pokemon:
 
     def compute_standard_stat(self, stat):
         value1 = (2*self.baseStats[stat]+self.iv[stat]+int(self.ev[stat]/4))*self.level
+        return int(value1/100) + NATURE_MATRIX[self.nature][stat]
+        pass
+
+    def compute_hp_stat(self):
+        value1 = (2*self.baseStats["HP"]+self.iv["HP"]+int(self.ev["HP"]/4))*self.level
         return int(value1/100) + self.level + 10
         pass
 
