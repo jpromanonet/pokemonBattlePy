@@ -40,4 +40,4 @@ class Attack:
         self.category = category
         self.pp = pp
         self.power = power
-        self.accuracy
+        self.accuracy = accuracy
