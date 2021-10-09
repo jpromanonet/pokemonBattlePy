@@ -21,7 +21,7 @@ class Pokemon:
             HP: self.compute_hp_stat(),
             ATTACK: self.compute_standard_stat(ATTACK),
             DEFENSE: self.compute_standard_stat(DEFENSE),
-            SPATTACK: self.compute_standard_stat(SPDEFENSE),
+            SPATTACK: self.compute_standard_stat(SPATTACK),
             SPDEFENSE: self.compute_standard_stat(SPDEFENSE),
             SPEED: self.compute_standard_stat(SPEED)
         }

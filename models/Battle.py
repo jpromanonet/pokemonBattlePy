@@ -1,4 +1,5 @@
 from constants import *
+import random
 
 class Battle:
 
@@ -42,6 +43,10 @@ class Battle:
         print(self.pokemon2.name + " has " + str(self.pokemon2.current_hp) + " left!")
 
     def compute_damage(attack, pokemon1, pokemon2):
+        aux = ((2*pokemon1.level)/5) + 2
+        powerFactor = aux * attack.power
+        if attack.category == PHYSICAL:
+            
         pass
 
     def compute_damage_modifier(attack, pokemon1, pokemon2):
