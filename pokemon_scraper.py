@@ -1,3 +1,4 @@
+import types
 from bs4 import BeautifulSoup
 import requests
 import json
@@ -19,11 +20,11 @@ for row in pokemonRows[1:]:
     statsArray = map(lambda data: int(data.text), statsHtml)
     typesHtml = row.find_all("a", attrs={"class":"type-icon"})
 
-    typesArray = map(lambda data: TYPES.index(data.text), typesHtml)
+    typesArray = map(lambda data: types.index(data.text), typesHtml)
 
     name = row.find("a", attrs={"class":"ent-name"}).text
 
-    megaHtml = row.find("small", attrs={"class":"ent-name"}).text
+    megaHtml = row.find("small", attrs={"class":"text-muted"})
     if megaHtml:
         name = megaHtml.text
     pokemonDict[name] = {

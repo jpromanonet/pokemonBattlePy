@@ -37,7 +37,6 @@ pokemon1.iv = {
 }
 
 pokemon1.compute_stats()
-print(pokemon1.stats)
 
 pokemon2.baseStats = {
     HP: 39,
@@ -65,6 +64,9 @@ pokemon2.iv = {
     SPDEFENSE: 21, 
     SPEED: 21
 }
+pokemon2.compute_stats()
+print(pokemon1.stats)
+print(pokemon2.stats)
 
 # Attacks
 pokemon1.attacks = [Attack("scratch", "normal", PHYSICAL, 10, 10, 100)]
