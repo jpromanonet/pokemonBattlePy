@@ -20,7 +20,7 @@ class Menu:
     def handle_event(self, event, game):
         for button in self.mainButtons:
             button.handle_event(event, game)
-        if self,state == 1:
+        if self.state == 1:
             if len(self.attackButtons) == 0:
                 for idx, attack in enumerate(game.pokemon1.attacks):
                     functionTurn = partial(game.makeTurn, index=idx)

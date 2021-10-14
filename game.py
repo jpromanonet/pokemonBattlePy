@@ -53,7 +53,7 @@ class Game:
                 if event.button == 1:
                     print(event.pos)
     
-    def loadResources(self);
+    def loadResources(self):
         self.loadPokemonImage(self.pokemon1, True)
         self.loadPokemonImage(self.pokemon2, False)
         self.gui.loadResources()
@@ -79,4 +79,15 @@ class Game:
         pokemon1 = "Blastoise"
         pokemon2 = "Skarmony"
         with open('db/pokemons.json') as f:
-            data.json
+            data = json.load(f)
+            type2 = None
+            if "type2" in data[pokemon1].keys():
+                type2 = data[pokemon1]["type2"]
+            self.pokemon1 = Pokemon(pokemon1, 100, data[pokemon1]["type1"], type2)
+            type22 = None
+            if "type2" in data[pokemon2]:
+                type22 = data[pokemon2]["type2"]
+            self.pokemon2 = Pokemon(pokemon2, 100, data[pokemon2]["type1"], type22)
+            self.pokemon1.baseStats = {
+                HP: data[self.pokemon1.name]["hp"]
+            }
