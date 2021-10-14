@@ -32,7 +32,7 @@ class Button:
         color = "black"
         if(self.state == 0):
             color = "gray"
-        pygame.draw.rect(game.screen, Color(color). self.rect, 2)
+        pygame.draw.rect(game.screen, Color(color), self.rect, 2)
         text_surface = self.font.render(self.text, False, Color(color))
         text_size = text_surface.get_rect().size
         leftPadding = (self.width - text_size[0]) /2
