@@ -89,5 +89,5 @@ class Game:
                 type22 = data[pokemon2]["type2"]
             self.pokemon2 = Pokemon(pokemon2, 100, data[pokemon2]["type1"], type22)
             self.pokemon1.baseStats = {
-                HP: data[self.pokemon1.name]["hp"]
+                HP: data[self.pokemon1.name]["HP"]
             }
