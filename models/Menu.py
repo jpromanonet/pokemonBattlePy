@@ -14,6 +14,7 @@ class Menu:
             Button(160*3, 400, 150, 40, "Mochila", partial(self.change_menu_state, newState=3)),
             Button(160*3, 450, 150, 40, "Huir", partial(self.change_menu_state, newState=4))
         ]
+
         self.attackButtons = []
 
     def handle_event(self, event, game):
@@ -29,4 +30,22 @@ class Menu:
                 for button in self.attackButtons:
                     button.handle_event(event, game)
         
-    
+    def change_menu_state(self, newState):
+        if (self.state == 1 and newState != 1):
+            # Cualquier boton clickeado cuando el modo luchar esta encendido y luego volve
+            self.state = 0
+            for button in self.mainButtons:
+                button.enable()
+        else:
+            self.state = newState
+            for button in self.mainButtons:
+                button.disable()
+
+    def render(self, game):
+        # pygame.draw.rect(game, screen, (0,0,0), self.rect, 4)
+        for button in self.mainButtons:
+            button.render(game)
+        if self.state == 1:
+            # Dibujar los botones de ataque
+            for button in self.attackButtons:
+                button.render(game)
