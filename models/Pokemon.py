@@ -15,6 +15,11 @@ class Pokemon:
         self.current_status = 0
         self.current_hp = 0
         self.nature = 0
+        self.renderer = None
+
+    def render(self, screen, position):
+        if self.renderer:
+            screen.blit(self.renderer, position)
     
     def compute_stats(self):
         self.stats = {
@@ -29,9 +34,9 @@ class Pokemon:
 
     def compute_standard_stat(self, stat):
         value1 = (2*self.baseStats[stat]+self.iv[stat]+int(self.ev[stat]/4))*self.level
-        return int(value1/100) + NATURE_MATRIX[self.nature][stat]
+        return (int(value1/100) + 5 ) * NATURE_MATRIX[self.nature][stat]
         pass
-
+        
     def compute_hp_stat(self):
         value1 = (2*self.baseStats["HP"]+self.iv["HP"]+int(self.ev["HP"]/4))*self.level
         return int(value1/100) + self.level + 10
